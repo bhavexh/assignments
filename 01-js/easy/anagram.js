@@ -5,12 +5,16 @@
 */
 
 function isAnagram(str1, str2) {
-  for (let i = 0; i < str1.length; i++) {
-    let char = str1[i];
-    if (!str2.includes(char)) {
-      return false;
-    }
+  if(str1.length !== str2.length){
+    return false;
   }
+  let lowercasedStr1 = str1.toLowerCase();
+  let lowercasedStr2 = str2.toLowerCase();
+  if(lowercasedStr1.split('').sort().join('') == lowercasedStr2.split('').sort().join('')){
+    return true;
+  } else {
+    return false;
+  } 
 }
 
 module.exports = isAnagram;
