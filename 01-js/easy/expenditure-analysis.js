@@ -38,16 +38,23 @@ function calculateTotalSpentByCategory(transactions) {
 let ans = [];
 
 function calculateTotalSpentByCategory(transactions) {
-  for (let t of transactions){
-    const index = ans.findIndex((item) => item.category === t.category);
-    if(index === -1){
-      ans.push({category: t.category, totalSpent: t.price});
-    }else{
-      ans[index].totalSpent += t.price;
+  transactions.forEach(transaction => {
+    const { category, price } = transaction;
+    if(categories[category]) {
+      console.log(categories[category]);
+      categories[category] += price;
     }
+    else {
+      categories[category] = price;
+    }
+  });
+  console.log(categories);
 
-  }
->>>>>>> 5b1d641 (assignment 1,2 done)
+  const ans = Object.keys(categories).map((category) => ({
+    category,
+    totalSpent : categories[category],
+  }));
+
   return ans;
 }
 
