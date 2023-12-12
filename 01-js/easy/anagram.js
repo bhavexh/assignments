@@ -5,6 +5,7 @@
 */
 
 function isAnagram(str1, str2) {
+<<<<<<< HEAD
   if(str1.length !== str2.length){
     return false;
   }
@@ -15,6 +16,14 @@ function isAnagram(str1, str2) {
   } else {
     return false;
   } 
+=======
+  for (let i = 0; i < str1.length; i++) {
+    let char = str1[i];
+    if (!str2.includes(char)) {
+      return false;
+    }
+  }
+>>>>>>> 5b1d641 (assignment 1,2 done)
 }
 
 module.exports = isAnagram;
